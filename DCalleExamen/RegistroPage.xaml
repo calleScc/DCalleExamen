@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DCalleExamen.RegistroPage" Title="Registro">
+    <ScrollView>
+        <VerticalStackLayout Padding="15" Spacing="10">
+            <Label x:Name="lblUsuario" HorizontalOptions="End"/>
+            <Label Text="REGISTRO" Style="{StaticResource TituloVista}"/>
+
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*,*" RowSpacing="8">
+                <Label Text="FECHA" Grid.Row="0" VerticalOptions="Center"/>
+                <DatePicker x:Name="dpFecha" Grid.Row="0" Grid.Column="1"/>
+
+                <Label Text="PAÍS" Grid.Row="1" VerticalOptions="Center"/>
+                <Picker x:Name="pkPais" Grid.Row="1" Grid.Column="1" Title="Países"
+                    SelectedIndexChanged="OnPaisChanged"/>
+
+                <Label Text="CIUDAD" Grid.Row="2" VerticalOptions="Center"/>
+                <Picker x:Name="pkCiudad" Grid.Row="2" Grid.Column="1" Title="Ciudades"/>
+
+                <Label Text="Monto inicial" Grid.Row="3" VerticalOptions="Center"/>
+                <Entry x:Name="txtMonto" Grid.Row="3" Grid.Column="1"
+                   Placeholder="Ingrese el monto inicial" Keyboard="Numeric"/>
+
+                <Button Text="Calcular pago mensual" Grid.Row="4" Grid.Column="0"
+                    Clicked="OnCalcular" Style="{StaticResource BotonPrincipal}"/>
+                <Entry x:Name="txtPagoMensual" Grid.Row="4" Grid.Column="1" IsReadOnly="True"/>
+            </Grid>
+
+            <BoxView HeightRequest="1" Color="Gray"/>
+
+            <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,*,*" ColumnSpacing="5">
+                <Label Text="NOMBRE"   Grid.Row="0" Grid.Column="0"/>
+                <Label Text="APELLIDO" Grid.Row="0" Grid.Column="1"/>
+                <Label Text="EDAD"     Grid.Row="0" Grid.Column="2"/>
+                <Entry x:Name="txtNombre"   Grid.Row="1" Grid.Column="0" Placeholder="Nombre"/>
+                <Entry x:Name="txtApellido" Grid.Row="1" Grid.Column="1" Placeholder="Apellido"/>
+                <Entry x:Name="txtEdad"     Grid.Row="1" Grid.Column="2" Placeholder="Edad" Keyboard="Numeric"/>
+            </Grid>
+
+            <Button Text="Ver resumen" Clicked="OnResumen"
+                Style="{StaticResource BotonPrincipal}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
